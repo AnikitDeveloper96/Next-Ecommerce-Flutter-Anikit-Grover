@@ -14,31 +14,44 @@ Welcome to NEXT, a comprehensive e-commerce application built with Flutter, desi
 
 Here's a glimpse of the NEXT E-commerce App in action:
 
-\<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px;"\>
-\<img src="[suspicious link removed]" alt="Onboarding Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Login/Auth Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Homepage" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Product Details Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Shopping Cart Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Favorites Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Checkout Step 1" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Checkout Step 2" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="Order History Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\<img src="[suspicious link removed]" alt="User Profile Screen" style="width: 100%; height: auto; object-fit: cover;"\>
-\</div\>
 
-*(Replace the placeholder image links with actual screenshots of the app's key UI elements. Ensure `object-fit: cover;` or similar styling is used to maintain aspect ratio and fill the space in your actual CSS if embedding in a web context supporting it.)*
+# Android Screen
+<img height="480px" src="screenshots/1.png">
+<img height="480px" src="screenshots/2.png">
+<img height="480px" src="screenshots/3.png">
+<img height="480px" src="screenshots/4.png">
+<img height="480px" src="screenshots/5.png">
 
------
+<img height="480px" src="screenshots/6.png">
+<img height="480px" src="screenshots/7.png">
+<img height="480px" src="screenshots/8.png">
+<img height="480px" src="screenshots/9.png">
+<img height="480px" src="screenshots/10.png">
+
+<img height="480px" src="screenshots/11.png">
+<img height="480px" src="screenshots/12.png">
+<img height="480px" src="screenshots/13.png">
+<img height="480px" src="screenshots/14.png">
+<img height="480px" src="screenshots/15.png">
+
+<img height="480px" src="screenshots/16.png">
+<img height="480px" src="screenshots/17.png">
+<img height="480px" src="screenshots/18.png">
+<img height="480px" src="screenshots/19.png">
+<img height="480px" src="screenshots/20.png">
+
+<img height="480px" src="screenshots/21.png">
+<img height="480px" src="screenshots/22.png">
+<img height="480px" src="screenshots/23.png">
+<img height="480px" src="screenshots/25.png">
+<img height="480px" src="screenshots/24.png">
 
 ## 📺 Demo Playlist
 
 Explore the "Complete E-commerce App Flutter UI" series and see NEXT in action through our detailed video demos:
 
-[**Watch the NEXT E-commerce App Demo Playlist on YouTube**](https://www.google.com/search?q=YOUR_YOUTUBE_PLAYLIST_LINK_HERE)
+[**Watch the NEXT E-commerce App Demo Playlist on YouTube**](https://www.youtube.com/playlist?list=PLj518-AUxFs_u1CCPOPB_QHdyKEC0U77l)
 
-*(Please replace `YOUR_YOUTUBE_PLAYLIST_LINK_HERE` with the actual URL to your YouTube playlist.)*
------
 
 ## ✨ Application Flow & Key Features
 
