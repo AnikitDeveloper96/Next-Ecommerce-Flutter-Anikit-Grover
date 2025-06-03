@@ -1,6 +1,7 @@
 // mainhomepage.dart - MODIFIED
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nextecommerceapp/screens/cart/cart_items.dart';
 import 'package:nextecommerceapp/screens/homepage/favourite_screen.dart';
 import 'package:nextecommerceapp/screens/homepage/homepage.dart';
 import 'package:nextecommerceapp/screens/profile/profile_screen.dart';
@@ -25,14 +26,9 @@ class _MainHomePageState extends State<MainHomePage> {
   Widget build(BuildContext context) {
     final List<Widget> _pages = [
       MyHomePage(user: widget.user),
-      SearchFilterPage(onThemeToggle: (_) {}), // Use SearchFilterPage
+      Container(),
       const FavoritesScreen(),
-      const Center(
-        child: Text(
-          "Cart",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
-        ),
-      ),
+      CartItems(),
     ];
 
     final List<String> _pageTitles = ["Home", "Search", "Favorites", "Cart"];
@@ -41,11 +37,11 @@ class _MainHomePageState extends State<MainHomePage> {
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu_rounded, size: 26.0),
-          onPressed: () => Scaffold.of(context).openDrawer(),
-          color: theme.iconTheme.color, // Use theme's icon color
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.menu_rounded, size: 26.0),
+        //   onPressed: () => Scaffold.of(context).openDrawer(),
+        //   color: theme.iconTheme.color, // Use theme's icon color
+        // ),
         title: Text(
           _pageTitles[_currentIndex],
           style: theme.textTheme.headlineSmall?.copyWith(
@@ -87,90 +83,80 @@ class _MainHomePageState extends State<MainHomePage> {
             ),
         ],
       ),
-      drawer: Drawer(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.horizontal(right: Radius.circular(20)),
-        ),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(color: theme.primaryColor),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  if (widget.user?.photoURL != null)
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage: NetworkImage(widget.user!.photoURL!),
-                      onBackgroundImageError:
-                          (exception, stackTrace) => const CircleAvatar(
-                            radius: 30,
-                            child: Icon(Icons.person_rounded),
-                          ),
-                    )
-                  else
-                    const CircleAvatar(
-                      radius: 30,
-                      child: Icon(Icons.person_rounded),
-                    ),
-                  const SizedBox(height: 12),
-                  Text(
-                    widget.user?.displayName ?? "Guest",
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    widget.user?.email ?? "example@email.com",
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: Colors.white70,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings_rounded),
-              title: const Text(
-                'Settings',
-                style: TextStyle(fontWeight: FontWeight.w500),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                // Navigate to settings screen
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info_rounded),
-              title: const Text(
-                'About',
-                style: TextStyle(fontWeight: FontWeight.w500),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                // Navigate to about screen
-              },
-            ),
-            // Removed the Sign Out ListTile from MainHomePage's drawer
-            // as it's now handled in ProfileScreen
-          ],
-        ),
-      ),
-      body: AnimatedSwitcher(
-        duration: const Duration(
-          milliseconds: 250,
-        ), // Slightly faster animation
-        child: _pages[_currentIndex],
-        transitionBuilder: (child, animation) {
-          return FadeTransition(
-            opacity: animation,
-            child: child,
-          ); // Add a subtle fade transition
-        },
-      ),
+
+      // drawer: Drawer(
+      //   shape: const RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.horizontal(right: Radius.circular(20)),
+      //   ),
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       DrawerHeader(
+      //         decoration: BoxDecoration(color: theme.primaryColor),
+      //         child: Column(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: <Widget>[
+      //             if (widget.user?.photoURL != null)
+      //               CircleAvatar(
+      //                 radius: 30,
+      //                 backgroundImage: NetworkImage(widget.user!.photoURL!),
+      //                 onBackgroundImageError:
+      //                     (exception, stackTrace) => const CircleAvatar(
+      //                       radius: 30,
+      //                       child: Icon(Icons.person_rounded),
+      //                     ),
+      //               )
+      //             else
+      //               const CircleAvatar(
+      //                 radius: 30,
+      //                 child: Icon(Icons.person_rounded),
+      //               ),
+      //             const SizedBox(height: 12),
+      //             Text(
+      //               widget.user?.displayName ?? "Guest",
+      //               style: theme.textTheme.titleLarge?.copyWith(
+      //                 color: Colors.white,
+      //                 fontWeight: FontWeight.bold,
+      //               ),
+      //             ),
+      //             Text(
+      //               widget.user?.email ?? "example@email.com",
+      //               style: theme.textTheme.bodyMedium?.copyWith(
+      //                 color: Colors.white70,
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.settings_rounded),
+      //         title: const Text(
+      //           'Settings',
+      //           style: TextStyle(fontWeight: FontWeight.w500),
+      //         ),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           // Navigate to settings screen
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: const Icon(Icons.info_rounded),
+      //         title: const Text(
+      //           'About',
+      //           style: TextStyle(fontWeight: FontWeight.w500),
+      //         ),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           // Navigate to about screen
+      //         },
+      //       ),
+      //       // Removed the Sign Out ListTile from MainHomePage's drawer
+      //       // as it's now handled in ProfileScreen
+      //     ],
+      //   ),
+      // ),
+      body: _pages[_currentIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Material(
@@ -185,18 +171,24 @@ class _MainHomePageState extends State<MainHomePage> {
             currentIndex: _currentIndex,
             onTap: (index) => setState(() => _currentIndex = index),
             type: BottomNavigationBarType.fixed,
-            selectedItemColor:
-                theme.colorScheme.secondary, // Use secondary color for emphasis
-            unselectedItemColor: theme.textTheme.bodyMedium?.color?.withOpacity(
-              0.6,
+            selectedItemColor: Colors.black,
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: true,
+            showUnselectedLabels: true,
+            selectedIconTheme: const IconThemeData(size: 26.0),
+            unselectedIconTheme: const IconThemeData(size: 26.0),
+            selectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14.0,
             ),
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            elevation: 0,
-            backgroundColor: Colors.transparent,
+            unselectedLabelStyle: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 14.0,
+            ),
+
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded),
+                icon: Icon(Icons.home_rounded, size: 35.0),
                 label: "Home",
               ),
               BottomNavigationBarItem(

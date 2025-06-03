@@ -192,7 +192,7 @@ class _ProductGridState extends State<ProductGrid> {
             backgroundColor: Colors.white.withOpacity(0.8),
             child: Icon(
               isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: isFavorite ? Colors.grey : Colors.black,
+              color: isFavorite ? Colors.black : Colors.blueGrey,
               size: 24,
             ),
           ),
